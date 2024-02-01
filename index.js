@@ -1,20 +1,20 @@
 const express = require("express"); 
-
+const routerProduct = require ('./api/routers/productos.routes')
 const app = express(); 
 
 const { connect } = require ('./bd')
+app.use('/productos', routerProduct)
 
 connect();
 
 app.use(express.json());
 
+
 app.get("/", (req, res) => {
      res.send("Express on Vercel"); 
 }); 
 
-app.get("/allproduct", (req, res) => {
-    res.send("Todos los productosg"); 
-});
+
 
 
 const PORT = process.env.PORT || 5000; 
